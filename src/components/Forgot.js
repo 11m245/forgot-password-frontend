@@ -4,7 +4,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, createRef, useState } from "react";
 import { apiContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -69,7 +69,7 @@ export function Forgot() {
   }
 
   function sendResetLink(user) {
-    // console.log("send link request for user", user);
+    console.log("send link request for user", user);
     fetch(`${api}/sendResetLink`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -95,7 +95,7 @@ export function Forgot() {
           helperText={
             touched.username && errors.username ? errors.username : null
           }
-          ref={usernameRef}
+          inputRef={usernameRef}
         />
 
         <Button
@@ -113,7 +113,7 @@ export function Forgot() {
           className="verify-user-button"
           variant="contained"
           endIcon={<LockResetIcon />}
-          onClick={() => sendResetLink({ username: values.username })}
+          onClick={() => sendResetLink({ username: usernameRef.current.value })}
         >
           Password Reset
         </Button>

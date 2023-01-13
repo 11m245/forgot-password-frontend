@@ -17,7 +17,7 @@ function App() {
       <div className="project-container">
         <apiContext.Provider
           value={{
-            api: "https://forgot-password-backend-production.up.railway.app",
+            api: "https://forgot-password-backend-production.up.railway.app/",
           }}
         >
           <Routes>
