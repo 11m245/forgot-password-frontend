@@ -11,13 +11,15 @@ import { NotFound } from "./components/notfound";
 import { ChangePasswordForm } from "./components/ChangePasswordForm";
 export const apiContext = createContext();
 function App() {
+  const serverapi = "https://forgot-password-backend.vercel.app";
+  //  const serverapi = "http://localhost:4000";
   return (
     <div className="App">
       <ToastContainer theme="dark" />
       <div className="project-container">
         <apiContext.Provider
           value={{
-            api: "https://forgot-password-backend.vercel.app",
+            api: serverapi,
           }}
         >
           <Routes>
