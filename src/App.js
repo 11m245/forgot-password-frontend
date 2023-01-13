@@ -15,7 +15,11 @@ function App() {
     <div className="App">
       <ToastContainer theme="dark" />
       <div className="project-container">
-        <apiContext.Provider value={{ api: "http://localhost:4000" }}>
+        <apiContext.Provider
+          value={{
+            api: "https://forgot-password-backend-production.up.railway.app",
+          }}
+        >
           <Routes>
             <Route path="/" element={<Home />}>
               <Route index element={<LoginForm />}></Route>
